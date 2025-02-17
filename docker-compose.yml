@@ -8,7 +8,8 @@ services:
       POSTGRES_PASSWORD: root
       POSTGRES_DB: finance_data
     volumes:
-      - ~/fincra_take_home/data:/var/lib/postgresql/data
+      - ~/fincra_take_home:/var/lib/postgresql/data
+      - ~/fincra_take_home/data:/data
     ports:
       - "5432:5432"
     networks:
