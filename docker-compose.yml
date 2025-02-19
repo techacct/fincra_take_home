@@ -1,31 +1,27 @@
+
 services:
   postgres:
-    image: postgres
+    image: postgres:latest
     container_name: postgres
-    restart: always
     environment:
       POSTGRES_USER: admin
-      POSTGRES_PASSWORD: root
-      POSTGRES_DB: finance_data
-    volumes:
-      - ~/fincra_take_home:/var/lib/postgresql/data
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: payt_coompany
     ports:
       - "5432:5432"
-    networks:
-      - mynetwork
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 
   pgadmin:
     image: dpage/pgadmin4
     container_name: pgadmin
-    restart: always
     environment:
       PGADMIN_DEFAULT_EMAIL: ademolaoladapo@gmail.com
-      PGADMIN_DEFAULT_PASSWORD: root
+      PGADMIN_DEFAULT_PASSWORD: admin
     ports:
-      - "8080:80"
-    networks:
-      - mynetwork
+      - "5050:80"
+    depends_on:
+      - postgres
 
-networks:
-  mynetwork:
-    driver: bridge
+volumes:
+  postgres_data:
