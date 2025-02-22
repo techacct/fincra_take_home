@@ -6,7 +6,7 @@ services:
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
-      POSTGRES_DB: payt_coompany
+      POSTGRES_DB: payt_company
     ports:
       - "5432:5432"
     volumes:
